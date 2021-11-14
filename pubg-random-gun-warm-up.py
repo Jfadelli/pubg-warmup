@@ -15,6 +15,13 @@ scopes = {
     'SR': ['Ironsights', '2x', '3x', '4x', '6x', '8x'],
 }
 
+grips = {
+    'AR':['Vert Grip', 'Lightweight Grip', 'Thumbgrip', 'Half Grip', 'Angled Grip'],
+    'SMG':['Vert Grip', 'Thumbgrip', 'Half Grip', 'Angled Grip'],
+}
+
+tips = [ 'Comp', 'Suppressor', 'Flash Hider']
+
 motivation = [
     'Aim small miss small!',
     'Be the hero you were born to be.',
@@ -23,13 +30,15 @@ motivation = [
     'They\'re all shitters!!!',
     'Did somebody say donuts?',
     'Good choice, now go get \'em!!',
-    'I\’d hate to die twice. It’s so boring',
+    'I\'d hate to die twice. It’s so boring',
     'They couldn’t hit an elephant at this dist—'
     'Now is not the time for making new enemies. -Voltaire'
     'I desire to go to Hell and not to Heaven. In the former I shall enjoy the company of popes, kings and princes, while in the latter are only beggars, monks and apostles.'
 ]
 
-
+styles = [
+    'Aggro', 'Passive', 
+]
 
 def main():
     gun_selection = []
@@ -40,29 +49,32 @@ def main():
 
     def pick(user_input):
         upper_user_innput = user_input.upper()
-        chosen = random.choice(weapons[upper_user_innput])
+        weapon = random.choice(weapons[upper_user_innput])
         scope = random.choice(scopes[upper_user_innput])
-        print(f'    {chosen} + {scope}')
+        style = random.choice(styles)
+        grip = random.choice(grips[upper_user_innput])
+        tip = random.choice(tips)
+        print(f'Weapon: {weapon}\nScope: {scope}\nGrip: {grip}\nTip: {tip}\nStyle: {style}\n')
 
     running = True
     while running == True:
-        print('---------------------------------------------')
+        print('\n---------------------------------------------')
         print(f'Choose from {gun_selection}')
-        print('Other commands; random, exit ')
-        user_input = input('    ')
+        print('Other commands; random, exit\n')
+        user_input = input('Weapon Type: ')
         
         if user_input == 'exit':
             running = False
         elif user_input == 'random':
             pick(random.choice(gun_selection))
-            print('    Only the bravest let the gods decide their fate! \n')
+            print('Only the bravest let the gods decide their fate! \n')
             input('continue...?')
 
         elif user_input.upper() not in gun_selection:
             print('Invalid input')
         else:
             pick(user_input)
-            print(f'    {random.choice(motivation)} \n')
+            print(f'{random.choice(motivation)} \n')
             continue_check = input('continue...? ( y/n)')
             if continue_check == 'n' or continue_check == 'exit':
                 running = False
