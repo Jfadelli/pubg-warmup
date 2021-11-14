@@ -5,7 +5,7 @@ weapons = {
     'SMG': ['MP5', 'UMP', 'UZI', 'Bizon', 'Thompson', 'Vector'],
     'DMR': ['Mini', 'SKS', 'QBU', 'SLR', 'MK12', 'VSS'],
     'SR': ['K9', 'M24', 'Mosin', 'Win94'],
-    'Shotty': ['S1897', 'S686', 'S12K', 'DBS'],
+    'SHOTTY': ['S1897', 'S686', 'S12K', 'DBS'],
 }
 
 scopes = {
@@ -13,11 +13,15 @@ scopes = {
     'SMG': ['Ironsights', 'Red Dot', 'Holo', '2x', '3x'],
     'DMR': ['Ironsights', 'Red Dot', 'Holo', '2x', '3x', '4x', '6x', '8x'],
     'SR': ['Ironsights', '2x', '3x', '4x', '6x', '8x'],
+    'SHOTTY':['Ironsights', '2x', '3x']
 }
 
 grips = {
     'AR':['Vert Grip', 'Lightweight Grip', 'Thumbgrip', 'Half Grip', 'Angled Grip'],
     'SMG':['Vert Grip', 'Thumbgrip', 'Half Grip', 'Angled Grip'],
+    'DMR':['N/A'],
+    'SR':['N/A'],
+    'SHOTTY':['N/A']
 }
 
 tips = [ 'Comp', 'Suppressor', 'Flash Hider']
@@ -68,7 +72,11 @@ def main():
         elif user_input == 'random':
             pick(random.choice(gun_selection))
             print('Only the bravest let the gods decide their fate! \n')
-            input('continue...?')
+            continue_check = input('continue...? ( y/n)')
+            if continue_check == 'n' or continue_check == 'exit':
+                running = False
+            else:
+                running = True
 
         elif user_input.upper() not in gun_selection:
             print('Invalid input')
