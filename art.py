@@ -23,11 +23,15 @@ def smg_art():
   print('                                                    |%%#')
   print('                                                    +---+')
 
-def dmr_art():\
-  print('dmr')
+def dmr_art():
+  print(' -+-------=############\_____     ')
+  print('  `````````=-#########=====\ |    ')
+  print('            /z/    D\%\     \|    ')
+  print('           /z/       \%\          ')
+
 
 def sr_art():
-  print('sr')
+  print('image still needed')
 
 def shotty_art():
   print('    ,______________________________________       ')
