@@ -1,5 +1,5 @@
 import random
-from data import motivation, styles, armory
+from data import motivation, styles, armory, commands
 from art import ar_art, smg_art, dmr_art, sr_art, shotty_art
 
 running = True
@@ -13,12 +13,12 @@ def main():
 
     def continue_check():
         global running
-        check_input = input('continue...? ( y/n)')
-        if check_input == 'n' or check_input == 'exit':
+        check_input = input('Press enter to continue. Input n or exit to quit.')
+        if check_input.lower() in commands['exit']:
             running = False
         else:
             running = True
-
+            
     def show_art(item):
         if item == 'AR':
             ar_art()
@@ -49,12 +49,11 @@ def main():
         print(f'Choose from {gun_selection}')
         print('Other commands; random, exit\n')
         user_input = input('Weapon Type: ')
-        if user_input == 'exit':
+        if user_input.lower() in commands['exit']:
             running = False
 
-        elif user_input == 'random':
+        elif user_input == 'random' or user_input == 'r':
             pick(random.choice(gun_selection))
-            print(f'{random.choice(motivation)} \n')
             continue_check()
 
         elif user_input.upper() not in gun_selection:

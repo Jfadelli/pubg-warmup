@@ -56,3 +56,7 @@ armory = {
         'S12K': {'scopes': ['Ironsights', '2x', '3x'], 'grips': ['Stock'], 'tips': ['Comp', 'Suppressor', 'Flash Hider']},
         'DBS': {'scopes': ['Ironsights', '2x', '3x'], 'grips': ['Stock'], 'tips': ['Stock']},
     }}
+
+commands = {
+    'exit': ['quit', 'exit', 'q']
+}
